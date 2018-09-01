@@ -23,4 +23,8 @@ app.get('/', (request, response) => {
   response.render('master');
 });
 
+app.use( express.static('./public') );
+
+app.use('*', (req, res) => res.render('pages/error'));
+
 app.listen( PORT, () => console.log('Server Up on ', PORT) );
