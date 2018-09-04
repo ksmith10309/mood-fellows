@@ -1,0 +1,14 @@
+<p> Your post has been submitted! Here it is:</p>
+
+<ul>
+    <% posts.forEach ( post => { %>
+        <li>
+            <section class="post-card">
+                <img src="<%= post.avatar %>">
+                <p> <%= post.content %> </p>
+            </section>
+        </li>
+    <% }); %>
+</ul>
+
+<p>Go <a href="/">home</a></p>
