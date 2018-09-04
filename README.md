@@ -1,7 +1,7 @@
 # Mood Fellows
 
 - **Author**: Hannah Sindorf, Brai Frauen, Katherine Smith
-- **Version**: 1.0.7
+- **Version**: 1.0.9
 
 ## Overview
 Blog that allows users to post anonymously. Posts are graded by the mood of the post by the Google Natural Language API - they will show an icon depending on whether the post is judged to be positive, negative, or neutral. Users can edit or delete posts they make by using an ID given when the post is made.
@@ -45,7 +45,9 @@ Visit [http://mood-fellows.herokuapp.com/](http://mood-fellows.herokuapp.com/) t
 ## Change Log
 
 ### 1.0.x
-- 09-04-2018 - 1.0.8 - Added styling to posts on home page
+- 09-04-2018 - 1.0.10 - Added styling to posts on home page
+- 09-04-2018 - 1.0.9 - New post page template
+- 09-04-2018 - 1.0.8 - Functioning posting, API calls
 - 09-04-2018 - 1.0.7 - Added images to images directory
 - 09-04-2018 - 1.0.6 - Added menu, basic page structure and styling
 - 09-04-2018 - 1.0.5 - Added new post template
