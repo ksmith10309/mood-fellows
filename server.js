@@ -35,9 +35,10 @@ app.listen( PORT, () => console.log('Server Up on ', PORT) );
 // functions for routes - get
 
 function getHome(request, response) {
-  let SQL = 'SELECT avatar, content FROM posts';
+  let SQL = 'SELECT id, avatar, content FROM posts';
   client.query(SQL)
     .then(data => {
+      console.log(data.rows);
       response.render('master', {
         posts:data.rows,
         'pageTitle': 'Home',

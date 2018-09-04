@@ -1,10 +1,37 @@
 <ul>
     <% posts.forEach ( post => { %>
         <li>
+        <% if (post.id % 2 === 0) { %>
+            <% if (post.avatar === "images/positive.png") { %>
+            <section class="post-card">
+                <p class="green-left"> <%= post.content %> </p>
+                <img src="<%= post.avatar %>">
+            <% } else if (post.avatar === "images/neutral.png") { %>
+            <section class="post-card">
+                <p class="yellow-left"> <%= post.content %> </p>
+                <img src="<%= post.avatar %>">
+            <% } else if (post.avatar === "images/negative.png") { %>
+            <section class="post-card">
+                <p class="red-left"> <%= post.content %> </p>
+                <img src="<%= post.avatar %>">
+            <% } %>
+            </section>
+        <% } else { %>
+            <% if (post.avatar === "images/positive.png") { %>
+            <section class="post-card">    
+                <img src="<%= post.avatar %>"> 
+                <p class="green-right"> <%= post.content %> </p>
+            <% } else if (post.avatar === "images/neutral.png") { %>
             <section class="post-card">
                 <img src="<%= post.avatar %>">
-                <p> <%= post.content %> </p>
+                <p class="yellow-right"> <%= post.content %> </p>
+            <% } else if (post.avatar === "images/negative.png") { %>
+            <section class="post-card">
+                <img src="<%= post.avatar %>">
+                <p class="red-right"> <%= post.content %> </p>
+            <% } %>
             </section>
+        <% } %>
         </li>
     <% }); %>
 </ul>
