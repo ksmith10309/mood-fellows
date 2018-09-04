@@ -43,7 +43,7 @@ Visit [http://mood-fellows.herokuapp.com/](http://mood-fellows.herokuapp.com/) t
 - Google Natural Language API - Sentiment Analyzer
 
 ## Change Log
-
+- 09-04-2018 - 1.0.2 - Updated database structure
 - 09-04-2018 - 1.0.1 - Updated documentation
 - 08-31-2018 - 1.0.0 - Initial release - set up repo, heroku hosting
 
