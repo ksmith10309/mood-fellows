@@ -13,7 +13,7 @@ Visit [http://mood-fellows.herokuapp.com/](http://mood-fellows.herokuapp.com/) t
 1. View posts by scrolling down the page 
 - new posts will be listed first.
 - Posts are graded by the mood of the post by the Google Natural Language API - they will show an icon depending on whether the post is judged to be positive, negative, or neutral.
-1. If you have a post's secret ID, you can delete the post or edit the post by clicking the corresponding buttons.
+2. If you have a post's secret ID, you can delete the post or edit the post by clicking the corresponding buttons.
 
 ### New Post
 1. Click "New Post" at the top menu.
@@ -43,7 +43,10 @@ Visit [http://mood-fellows.herokuapp.com/](http://mood-fellows.herokuapp.com/) t
 - Google Natural Language API - Sentiment Analyzer
 
 ## Change Log
-- 09-04-2018 - 1.0.2 - Updated database structure
+
+### 1.0.x
+- 09-04-2018 - 1.0.3 - Server updated with get routes
+- 09-04-2018 - 1.0.2 - File structure for templates
 - 09-04-2018 - 1.0.1 - Updated documentation
 - 08-31-2018 - 1.0.0 - Initial release - set up repo, heroku hosting
 
