@@ -35,10 +35,15 @@ app.listen( PORT, () => console.log('Server Up on ', PORT) );
 // functions for routes - get
 
 function getHome(request, response) {
-  response.render('master', {
-    'pageTitle': 'Home',
-    'pagePath': 'partials/home.ejs'
-  });
+  let SQL = 'SELECT avatar, content FROM posts';
+  client.query(SQL)
+    .then(data => {
+      response.render('master', {
+        posts:data.rows,
+        'pageTitle': 'Home',
+        'pagePath': 'pages/home.ejs'
+      });
+    });
 }
 
 function getNew(request, response) {
