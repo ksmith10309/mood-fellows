@@ -45,6 +45,7 @@ Visit [http://mood-fellows.herokuapp.com/](http://mood-fellows.herokuapp.com/) t
 ## Change Log
 
 ### 1.0.x
+- 09-04-2018 - 1.0.5 - Added images to images directory
 - 09-04-2018 - 1.0.4 - Added home template to display posts
 - 09-04-2018 - 1.0.3 - Server updated with get routes
 - 09-04-2018 - 1.0.2 - File structure for templates
