@@ -1,16 +1,21 @@
 
-    <main>
-            <div>
-                <h1>Instructions</h1>
+    <main class="site-wrap">
+            
+               <h2>Instructions</h2>
                 <div>
+                    
                     Mood-Fellows is pretty easy to use. Simply write your thought in the entry box below. And submit it, your post is anonomyus so don't worry about other people reading or judging you for what you say. We will however catergorize your response by the your mood. We do that by using a special google API that reads and analyzes how you are feeling. It's pretty cool! 
                 </div>
-                <div>
-                    <form method="POST" action="new"></form>
-                    <label>Share your thoughts</label>
-                    <input type="text" name="description" id="description" value="Enter Comment Here" />
-                    <input type="submit" value="Submit" class="button">
-                 </div>
+                <div class="conten-wrap">
+                    <div class="card-column">
+                    
+                        <form method="POST" action="/new/submit">
+                            <textarea name="description" id="description" type= "text" cols="30" rows="10" required maxlength="2000"></textarea>
+                            <input type="submit" value="Add Post"  class="button">
+                        
+                        </form>
+                    </div> 
+                    </div>
                  
                 <div>
                     <p>
