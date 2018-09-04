@@ -6,8 +6,9 @@ CREATE TABLE posts (
     score FLOAT,
     magnitude FLOAT,
     avatar VARCHAR(255),
-    content TEXT
+    content TEXT,
+    password VARCHAR(255)
 );
 
-INSERT INTO posts (date, score, magnitude, avatar, content) VALUES
-('June 11, 1991', 1, 1, 'https://api.adorable.io/avatars/285/hi.png', 'Hello World!');
+INSERT INTO posts (date, score, magnitude, avatar, content, password) VALUES
+('June 11, 1991', 1, 1, 'https://api.adorable.io/avatars/285/hi.png', 'Hello World!', '12345678');
