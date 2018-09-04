@@ -38,7 +38,6 @@ function getHome(request, response) {
   let SQL = 'SELECT id, avatar, content FROM posts';
   client.query(SQL)
     .then(data => {
-      console.log(data.rows);
       response.render('master', {
         posts:data.rows,
         'pageTitle': 'Home',

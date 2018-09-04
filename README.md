@@ -45,6 +45,7 @@ Visit [http://mood-fellows.herokuapp.com/](http://mood-fellows.herokuapp.com/) t
 ## Change Log
 
 ### 1.0.x
+- 09-04-2018 - 1.0.8 - Added styling to posts on home page
 - 09-04-2018 - 1.0.7 - Added images to images directory
 - 09-04-2018 - 1.0.6 - Added menu, basic page structure and styling
 - 09-04-2018 - 1.0.5 - Added new post template
@@ -55,3 +56,4 @@ Visit [http://mood-fellows.herokuapp.com/](http://mood-fellows.herokuapp.com/) t
 - 08-31-2018 - 1.0.0 - Initial release - set up repo, heroku hosting
 
 ## Credits and Collaborations
+https://leaverou.github.io/bubbly/
