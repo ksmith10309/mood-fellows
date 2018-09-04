@@ -1,0 +1,14 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #eee;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 18px;
+}
+
+a, a:hover, a:active {
+    text-decoration: none;
+    color: blue;
+}
