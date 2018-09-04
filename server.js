@@ -1,30 +1,62 @@
 'use strict';
 
+// app configuration
 require('dotenv').config();
 const express = require('express');
 const pg = require('pg');
 const superagent = require('superagent');
+const app = express();
 
-let app = express();
 app.set('view engine', 'ejs');
 app.use(express.urlencoded({extended:true}));
 const PORT = process.env.PORT;
 
+// DB
 const CONSTRING = process.env.DATABASE_URL;
-// const CONSTRING = 'postgres://localhost:5432/books_app';
-
 let client = new pg.Client(CONSTRING);
 client.connect();
+
 client.on('error', err => {
   console.error(err);
 });
 
-app.get('/', (request, response) => {
-  response.render('master');
-});
+// get routes
+app.get('/', getHome);
+app.get('/new', getNew);
+app.get('/about', getAbout);
 
+// post routes
 app.use( express.static('./public') );
-
 app.use('*', (req, res) => res.render('pages/error'));
 
 app.listen( PORT, () => console.log('Server Up on ', PORT) );
+
+
+// functions for routes - get
+
+function getHome(request, response) {
+  response.render('master', {
+    'pageTitle': 'Home',
+    'pagePath': 'partials/home.ejs'
+  });
+}
+
+function getNew(request, response) {
+  response.render('master', {
+    'pageTitle': 'New Post',
+    'pagePath': 'partials/new.ejs'
+  });
+}
+
+function getAbout(request, response) {
+  response.render('master', {
+    'pageTitle': 'About',
+    'pagePath': 'partials/about.ejs'
+  });
+}
+
+// functions for routes - post
+
+// functions for routes - put/delete
+
+// functions for routes - errors
