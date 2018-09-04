@@ -1,0 +1,59 @@
+/* header */
+
+header {
+    background-color: #222222;
+    color: white;
+    font-size: 1.5em;
+    overflow: hidden;
+    padding: .5em;
+}
+
+/* header - h1 */
+
+header h1 {
+    float: left;
+}
+
+header h1 a {
+    color: white;
+}
+
+/* header - nav */
+
+header nav input,
+header nav label,
+header nav ul {
+  float: right;
+}
+
+header nav ul {
+    display: none;
+}
+
+header nav ul li {
+    display: block;
+}
+
+header nav input {
+    display: none;
+}
+
+header nav input:checked ~ ul {
+    display: block;
+}
+
+/* header - nav (desktop) */
+
+@media screen and (min-width: 960px) {
+    header nav ul {
+        display: block;
+    }
+
+    header nav ul li {
+        display: inline-block;
+    }
+
+    header nav label.fas {
+        display: none;
+    }
+}

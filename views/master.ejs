@@ -1,23 +1,22 @@
-<!DOCTYPE <!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Mood Fellows - <%= pageTitle %></title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <%- include partials/styles.ejs %>
     <title>Mood Fellows</title>
 </head>
 <body>
     <header>
-        <div class="site-title">
-            <%-include partials/nav-menu.ejs %>
-        </div>
-        <div class="content-container"></div>
-        <% include %>
+        <h1><a href="/">Mood Fellows</a></h1>
+        <%-include partials/nav-menu.ejs %>
     </header>
-    
-    <%- include(pagePath) %>
-    
+    <main>
+        <%- include(pagePath) %>
+        <p>Content lives here!</p>
+    </main>
+    <%- include partials/scripts.ejs %>
 </body>
 </html>
