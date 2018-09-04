@@ -1,0 +1,10 @@
+<ul>
+    <% posts.forEach ( post => { %>
+        <li>
+            <section class="post-card">
+                <img src="<%= post.avatar %>">
+                <p> <%= post.content %> </p>
+            </section>
+        </li>
+    <% }); %>
+</ul>
