@@ -8,7 +8,48 @@ body {
     font-size: 18px;
 }
 
+h2 {
+    font-size: 2em;
+    text-align: center;
+    padding-bottom: 20px;
+    font-family: IM Fell Double Pica SC;
+}
+
 a, a:hover, a:active {
     text-decoration: none;
     color:rgb(40, 37, 133);
+}
+
+p {
+	margin: 1em 0;
+	line-height: 1.5;
+}
+
+@media (min-width: 960px) {
+	.content-p {
+		width: 80%;
+		margin: 0 auto;
+	}
+}
+
+form {
+	margin: 0 auto;
+}
+
+@media (min-width: 960px) {
+	form {
+		max-width: 60%;
+	}
+}
+
+input {
+	display: block;
+}
+
+input,textarea {
+	font-size: 1em;
+	font-family: serif;
+	padding: .5em;
+	width: 100%;
+	margin: 1em auto;
 }

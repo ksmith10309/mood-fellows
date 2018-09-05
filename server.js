@@ -129,13 +129,14 @@ function postNewPost(request, response) {
         imageUrl = 'neutral';
       }
       // this is sending to the database
-      let SQL = `INSERT INTO posts (date, score, magnitude, avatar, content) VALUES ($1, $2, $3, $4, $5)`;
+      let SQL = `INSERT INTO posts (date, score, magnitude, avatar, content, password) VALUES ($1, $2, $3, $4, $5, $6)`;
       let values = [
         new Date(),
         results.body.documentSentiment.score,
         results.body.documentSentiment.magnitude,
         imageUrl,
-        request.body.description
+        request.body.description,
+        request.body.secretId
       ];
       client.query(SQL, values)
         .then( () => {
@@ -145,7 +146,8 @@ function postNewPost(request, response) {
               score: values[1],
               magnitude: values[2],
               avatar: values[3],
-              content: values[4]
+              content: values[4],
+              secretId: values[5]
             }],
             'pageTitle': 'Result',
             'pagePath': 'pages/result.ejs'
@@ -156,7 +158,11 @@ function postNewPost(request, response) {
 
 // functions for routes - edit post
 
+// functions for routes - delete post
 
+function deletePost(request, response) {
+
+}
 
 // functions for routes - errors
 

@@ -1,4 +1,4 @@
-<p> Your post has been submitted! Here it is:</p>
+<p class="content-p"> Your post has been submitted! Here it is:</p>
 
 <ul>
     <% posts.forEach ( post => { %>
@@ -8,5 +8,7 @@
         </li>
     <% }); %>
 </ul>
+
+<p class="content-p">Your ID is: <%= posts[0].secretId %></p>
 
 <p>Go <a href="/">home</a></p>
