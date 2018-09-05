@@ -11,4 +11,4 @@ CREATE TABLE posts (
 );
 
 INSERT INTO posts (date, score, magnitude, avatar, content, password) VALUES
-('June 11, 1991', 1, 1, 'https://api.adorable.io/avatars/285/hi.png', 'Hello World!', '12345678');
+('June 11, 1991', 1, 1, 'neutral', 'Hello World!', '12345678');

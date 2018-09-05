@@ -54,14 +54,14 @@ function getHome(request, response) {
 function getNew(request, response) {
   response.render('master', {
     'pageTitle': 'New Post',
-    'pagePath': 'partials/new.ejs'
+    'pagePath': 'pages/new.ejs'
   });
 }
 
 function getAbout(request, response) {
   response.render('master', {
     'pageTitle': 'About',
-    'pagePath': 'partials/about.ejs'
+    'pagePath': 'pages/about.ejs'
   });
 }
 
@@ -88,12 +88,13 @@ function postNewPost(request, response) {
     .then(results => {
       // this gets the image url based on the score
       let imageUrl = '';
+      let thisClass = '';
       if (results.body.documentSentiment.score < -.25) {
-        imageUrl = 'images/negative.png';
+        imageUrl = 'negative';
       } else if (results.body.documentSentiment.score > .25) {
-        imageUrl = 'images/positive.png';
+        imageUrl = 'positive';
       } else {
-        imageUrl = 'images/neutral.png';
+        imageUrl = 'neutral';
       }
       // this is sending to the database
       let SQL = `INSERT INTO posts (date, score, magnitude, avatar, content) VALUES ($1, $2, $3, $4, $5)`;
@@ -112,7 +113,8 @@ function postNewPost(request, response) {
               score: values[1],
               magnitude: values[2],
               avatar: values[3],
-              content: values[4]
+              content: values[4],
+              classOfThis: thisClass
             }],
             'pageTitle': 'Result',
             'pagePath': 'pages/result.ejs'
@@ -124,3 +126,5 @@ function postNewPost(request, response) {
 // functions for routes - put/delete
 
 // functions for routes - errors
+
+// other functions
