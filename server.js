@@ -242,6 +242,8 @@ function deletePost(request, response) {
 // other functions
 
 function getTime(date) {
+  let minutes = date.getMinutes().toString();
+  if (minutes.length === 1) { minutes = '0' + minutes; }
   if (date.getHours() > 12) {
     return (date.getHours() - 12) + ':' + date.getMinutes() + ' PM';
   } else if (date.getHours() === 12 ) {
