@@ -3,7 +3,7 @@
 <ul>
     <% posts.forEach ( post => { %>
         <li class="post-card <%- post.avatar %>">
-            <p> <%= post.content %> </p>
+            <p class="speech-bubble"> <%= post.content %> </p>
             <img src="<%- '../images/' + post.avatar + '.png' %>">
         </li>
     <% }); %>

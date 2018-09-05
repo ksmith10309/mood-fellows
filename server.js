@@ -4,6 +4,7 @@
 require('dotenv').config();
 const express = require('express');
 const pg = require('pg');
+const fs = require('fs');
 const superagent = require('superagent');
 const app = express();
 
@@ -26,6 +27,8 @@ client.on('error', err => {
 app.get('/', getHome);
 app.get('/new', getNew);
 app.get('/about', getAbout);
+app.get('/edit/:id', getEdit);
+app.get('/delete/:id', getDelete);
 
 // post routes
 app.post('/new/submit', postNewPost);
@@ -63,6 +66,36 @@ function getAbout(request, response) {
     'pageTitle': 'About',
     'pagePath': 'pages/about.ejs'
   });
+}
+
+function getEdit(request, response) {
+  let SQL = `SELECT * FROM posts WHERE id = $1`;
+  let values = [request.params.id];
+  client.query(SQL, values)
+    .then( (data) => {
+      console.log(data.rows[0]);
+      response.render('master', {
+        post: data.rows[0],
+        'pageTitle': 'Edit Post',
+        'pagePath': 'pages/edit.ejs'
+      });
+    })
+    .catch( (err) => console.log(err) );
+}
+
+function getDelete(request, response) {
+  let SQL = `SELECT * FROM posts WHERE id = $1`;
+  let values = [request.params.id];
+  client.query(SQL, values)
+    .then( (data) => {
+      console.log(data.rows[0]);
+      response.render('master', {
+        post: data.rows[0],
+        'pageTitle': 'Delete Post',
+        'pagePath': 'pages/delete.ejs'
+      });
+    })
+    .catch( (err) => console.log(err) );
 }
 
 // functions for routes - post
@@ -121,7 +154,9 @@ function postNewPost(request, response) {
     });
 }
 
-// functions for routes - put/delete
+// functions for routes - edit post
+
+
 
 // functions for routes - errors
 
