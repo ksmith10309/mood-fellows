@@ -51,15 +51,15 @@
 }
 
 .post-card.negative .speech-bubble {
-    background: lightpink;
+    background: rgb(241,162,174);
 }
 
 .post-card.neutral .speech-bubble {
-    background: #ebd270;
+    background: rgb(230,238,127);
 }
 
 .post-card.positive .speech-bubble {
-    background: lightgreen;
+    background: rgb(126,240,134);
 }
 
 .post-card img {
@@ -84,13 +84,13 @@
     }
 
     .post-card.negative .speech-bubble:after {
-        border-top-color: lightpink;
+        border-top-color: rgb(241,162,174);
     }
     .post-card.neutral .speech-bubble:after {
-        border-top-color: #ebd270;
+        border-top-color: rgb(230,238,127);
     }
     .post-card.positive .speech-bubble:after {
-        border-top-color: lightgreen;
+        border-top-color: rgb(126,240,134);
     }
 }
 
@@ -113,7 +113,7 @@
         content: '';
         position: absolute;
         right: 0;
-        top: 50%;
+        top: 70px;
         width: 0;
         height: 0;
         border: 0.75em solid transparent;
@@ -127,7 +127,7 @@
         content: '';
         position: absolute;
         left: 0;
-        top: 50%;
+        top: 70px;
         width: 0;
         height: 0;
         border: 0.75em solid transparent;
@@ -138,22 +138,22 @@
     }
 
     .post-card.negative:nth-child(2n + 1) .speech-bubble:after {
-        border-right-color: lightpink;
+        border-right-color: rgb(241,162,174);
     }
     .post-card.neutral:nth-child(2n + 1) .speech-bubble:after {
-        border-right-color: #ebd270;
+        border-right-color: rgb(230,238,127);
     }
     .post-card.positive:nth-child(2n + 1) .speech-bubble:after {
-        border-right-color: lightgreen;
+        border-right-color: rgb(126,240,134);
     }
 
     .post-card.negative:nth-child(2n) .speech-bubble:after {
-        border-left-color: lightpink;
+        border-left-color: rgb(241,162,174);
     }
     .post-card.neutral:nth-child(2n) .speech-bubble:after {
-        border-left-color: #ebd270;
+        border-left-color: rgb(230,238,127);
     }
     .post-card.positive:nth-child(2n) .speech-bubble:after {
-        border-left-color: lightgreen;
+        border-left-color: rgb(126,240,134);
     }
 }
