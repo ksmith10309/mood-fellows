@@ -2,10 +2,12 @@
 
 .date-edit p {
     margin: 0;
+    opacity: .4;
 }
 
 .date-edit {
     overflow: hidden;
+    font-size: .9em;
 }
 
 .date-edit p:nth-child(1) {
@@ -29,7 +31,7 @@
 /* homepage - speech bubbles */
 
 .speech-bubble {
-    margin: 0;
+    margin: 0 0 1em 0;
 }
 
 .post-card {

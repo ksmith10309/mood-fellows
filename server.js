@@ -122,6 +122,7 @@ function postNewPost(request, response) {
     .send(documents)
     .then(results => {
       // this gets the image url based on the score
+      let date = new Date();
       let imageUrl = '';
       if (results.body.documentSentiment.score < -.25) {
         imageUrl = 'negative';
@@ -133,7 +134,7 @@ function postNewPost(request, response) {
       // this is sending to the database
       let SQL = `INSERT INTO posts (date, score, magnitude, avatar, content, password) VALUES ($1, $2, $3, $4, $5, $6)`;
       let values = [
-        new Date(),
+        date.toDateString() + ' ' + getTime(date),
         results.body.documentSentiment.score,
         results.body.documentSentiment.magnitude,
         imageUrl,
@@ -239,3 +240,13 @@ function deletePost(request, response) {
 // functions for routes - errors
 
 // other functions
+
+function getTime(date) {
+  if (date.getHours() > 12) {
+    return (date.getHours() - 12) + ':' + date.getMinutes() + ' PM';
+  } else if (date.getHours() === 12 ) {
+    return '12:' + date.getMinutes() + ' PM';
+  } else {
+    return date.getHours() + ':' + date.getMinutes() + ' AM';
+  }
+}
