@@ -2,6 +2,6 @@ main {
     background-color:whitesmoke;
     margin: 0 auto;
     max-width: 960px;
-    min-height: calc(100vh - 4em);
+    min-height: calc(100vh - (3em + 1px));
     padding: 30px;
 }

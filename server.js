@@ -35,6 +35,7 @@ app.post('/new/submit', postNewPost);
 
 //put/delete routes
 app.post('/delete/:id/submit', deletePost);
+app.post('/edit/:id/submit', editPost);
 
 app.use( express.static('./public') );
 app.use(express.urlencoded({ extended: true }));
@@ -158,6 +159,60 @@ function postNewPost(request, response) {
 }
 
 // functions for routes - edit post
+
+function editPost(request, response) {
+  let SQL = `SELECT * FROM posts WHERE id = $1`;
+  let values = [request.params.id];
+  client.query(SQL, values)
+    .then( (data) => {
+      if (data.rows[0].password === request.body.secretId) {
+        let url = 'https://language.googleapis.com/v1/documents:analyzeSentiment?key=' + api_key;
+        // this puts the post content in the correct format to send to google
+        let documents = {
+          "document": {
+            "type":"plain_text",
+            "language": "EN",
+            "content": request.body.postContent
+          },
+          "encodingType":"UTF8"
+        };
+      
+        // this sends to google
+        superagent
+          .post(url)
+          .send(documents)
+          .then(results => {
+            // this gets the image url based on the score
+            let imageUrl = '';
+            if (results.body.documentSentiment.score < -.25) {
+              imageUrl = 'negative';
+            } else if (results.body.documentSentiment.score > .25) {
+              imageUrl = 'positive';
+            } else {
+              imageUrl = 'neutral';
+            }
+            // this is sending to the database
+            let SQL2 = `UPDATE posts SET score = $1, magnitude = $2, avatar = $3, content = $4 WHERE id = $5`;
+            let values2 = [
+              results.body.documentSentiment.score,
+              results.body.documentSentiment.magnitude,
+              imageUrl,
+              request.body.postContent,
+              request.params.id
+            ];
+            client.query(SQL2, values2)
+              .then( () => {
+                response.redirect('/');
+              });
+          });
+      } else {
+        response.render('master', {
+          'pageTitle': 'Incorrect Password',
+          'pagePath': 'pages/incorrect.ejs'
+        });
+      }
+    });
+}
 
 // functions for routes - delete post
 
