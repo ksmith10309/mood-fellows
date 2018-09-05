@@ -1,0 +1,15 @@
+<p>Edit your post below, then enter your password and click "save"</p>
+
+<div>
+    <div class="post-card <%- post.avatar %>">
+        <p class="speech-bubble"><%= post.content %></p>
+        <img src="<%- '../images/' + post.avatar + '.png' %>">
+    </div>
+</div>
+
+<form>
+    <p class="delete-edit-error">Incorrect ID</p>
+    <textarea name="post-content" id="post-content" cols="30" rows="10"><%= post.content %></textarea>
+    <input type="text" name="secretId" id="secretId" placeholder="ID here" />
+    <input type="submit" value="Save">
+</form>
