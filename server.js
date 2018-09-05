@@ -33,6 +33,9 @@ app.get('/delete/:id', getDelete);
 // post routes
 app.post('/new/submit', postNewPost);
 
+//put/delete routes
+app.post('/delete/:id/submit', deletePost);
+
 app.use( express.static('./public') );
 app.use(express.urlencoded({ extended: true }));
 app.use('*', (req, res) => res.render('pages/error'));
@@ -73,7 +76,6 @@ function getEdit(request, response) {
   let values = [request.params.id];
   client.query(SQL, values)
     .then( (data) => {
-      console.log(data.rows[0]);
       response.render('master', {
         post: data.rows[0],
         'pageTitle': 'Edit Post',
@@ -88,7 +90,6 @@ function getDelete(request, response) {
   let values = [request.params.id];
   client.query(SQL, values)
     .then( (data) => {
-      console.log(data.rows[0]);
       response.render('master', {
         post: data.rows[0],
         'pageTitle': 'Delete Post',
@@ -161,7 +162,23 @@ function postNewPost(request, response) {
 // functions for routes - delete post
 
 function deletePost(request, response) {
-
+  let SQL = `SELECT * FROM posts WHERE id = $1`;
+  let values = [request.params.id];
+  client.query(SQL, values)
+    .then( (data) => {
+      if (data.rows[0].password === request.body.secretId) {
+        let SQL2 = `DELETE FROM posts WHERE id = $1`;
+        client.query(SQL2, values)
+          .then( () => {
+            response.redirect('/');
+          });
+      } else {
+        response.render('master', {
+          'pageTitle': 'Incorrect Password',
+          'pagePath': 'pages/incorrect.ejs'
+        });
+      }
+    });
 }
 
 // functions for routes - errors
