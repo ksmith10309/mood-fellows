@@ -234,4 +234,8 @@ header nav input:checked ~ ul {
         padding: .5em;
         width: 96.093%;
     }
-      
+
+/* about page */
+.profile-image {
+    border-radius: 50%;
+}
