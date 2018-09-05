@@ -2,11 +2,9 @@
 
 <ul>
     <% posts.forEach ( post => { %>
-        <li>
-            <section class="post-card">
-                <img src="<%= post.avatar %>">
-                <p> <%= post.content %> </p>
-            </section>
+        <li class="post-card <%- post.avatar %>">
+            <p> <%= post.content %> </p>
+            <img src="<%- '../images/' + post.avatar + '.png' %>">
         </li>
     <% }); %>
 </ul>

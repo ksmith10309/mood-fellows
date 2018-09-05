@@ -31,7 +31,7 @@ app.get('/about', getAbout);
 app.post('/new/submit', postNewPost);
 
 app.use( express.static('./public') );
-// app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: true }));
 app.use('*', (req, res) => res.render('pages/error'));
 
 app.listen( PORT, () => console.log('Server Up on ', PORT) );
@@ -40,7 +40,7 @@ app.listen( PORT, () => console.log('Server Up on ', PORT) );
 // functions for routes - get
 
 function getHome(request, response) {
-  let SQL = 'SELECT * FROM posts';
+  let SQL = 'SELECT * FROM posts ORDER BY id DESC LIMIT 50';
   client.query(SQL)
     .then(data => {
       response.render('master', {
@@ -54,14 +54,14 @@ function getHome(request, response) {
 function getNew(request, response) {
   response.render('master', {
     'pageTitle': 'New Post',
-    'pagePath': 'partials/new.ejs'
+    'pagePath': 'pages/new.ejs'
   });
 }
 
 function getAbout(request, response) {
   response.render('master', {
     'pageTitle': 'About',
-    'pagePath': 'partials/about.ejs'
+    'pagePath': 'pages/about.ejs'
   });
 }
 
@@ -89,11 +89,11 @@ function postNewPost(request, response) {
       // this gets the image url based on the score
       let imageUrl = '';
       if (results.body.documentSentiment.score < -.25) {
-        imageUrl = 'images/negative.png';
+        imageUrl = 'negative';
       } else if (results.body.documentSentiment.score > .25) {
-        imageUrl = 'images/positive.png';
+        imageUrl = 'positive';
       } else {
-        imageUrl = 'images/neutral.png';
+        imageUrl = 'neutral';
       }
       // this is sending to the database
       let SQL = `INSERT INTO posts (date, score, magnitude, avatar, content) VALUES ($1, $2, $3, $4, $5)`;
@@ -124,3 +124,5 @@ function postNewPost(request, response) {
 // functions for routes - put/delete
 
 // functions for routes - errors
+
+// other functions
