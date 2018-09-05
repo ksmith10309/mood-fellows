@@ -11,4 +11,4 @@ CREATE TABLE posts (
 );
 
 INSERT INTO posts (date, score, magnitude, avatar, content, password) VALUES
-('June 11, 1991', 1, 1, 'neutral', 'Hello World!', '12345678');
+('Wed Sep 05 2018 4:00 PM', 1, 1, 'neutral', 'Hello World!', 'password');
