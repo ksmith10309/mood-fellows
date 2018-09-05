@@ -1,7 +1,14 @@
 <ul>
     <% posts.forEach ( post => { %>
         <li class="post-card <%- post.avatar %>">
-            <p><%= post.content %></p>
+                <div class="date-edit" id="<%- post.id %>">
+                    <p><%= post.date %></p>
+                    <p>
+                        <a class="edit-post" href="/edit/<%- post.id %>">Edit</a> / 
+                        <a class="delete-post" href="/delete/<%- post.id %>">Delete</a>
+                    </p>
+                </div>
+            <p class="speech-bubble"><%= post.content %></p>
             <img src="<%- 'images/' + post.avatar + '.png' %>">
         </li>
     <% }); %>

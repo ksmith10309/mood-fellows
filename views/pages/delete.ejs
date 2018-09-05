@@ -1,0 +1,15 @@
+<p>To delete your post, please enter your password and click "delete"</p>
+
+<div>
+    <div class="post-card <%- post.avatar %>">
+        <p class="speech-bubble"><%= post.content %></p>
+        <img src="<%- '../images/' + post.avatar + '.png' %>">
+    </div>
+</div>
+
+<form method="post" action="/delete/submit">
+    <p class="delete-edit-error">Incorrect ID</p>
+    <input type="hidden" name="postId" id="postId" value="<%- post.id %>" />
+    <input type="text" name="secretId" id="secretId" placeholder="ID here" />
+    <input type="submit" value="Delete" />
+</form>
