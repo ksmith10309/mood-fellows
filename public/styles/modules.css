@@ -1,11 +1,12 @@
 /* header */
 
 header {
-    background-color: #222222;
+    background-color:white;
     color: white;
     font-size: 1.5em;
     overflow: hidden;
     padding: .5em;
+    font-family: Bungee Shade;
 }
 
 /* header - h1 */
@@ -15,7 +16,7 @@ header h1 {
 }
 
 header h1 a {
-    color: white;
+    color: black;
 }
 
 /* header - nav */
@@ -195,6 +196,7 @@ header nav input:checked ~ ul {
         font-size: 2em;
         text-align: center;
         padding-bottom: 20px;
+        font-family: IM Fell Double Pica SC;
     }
     main{
         width: 100%;
@@ -207,9 +209,9 @@ header nav input:checked ~ ul {
 
     .card-column {
         width: 600px;
-        position: absolute;
-        margin: auto;
+        margin: 0 auto;
         text-align: center;
+
  
     }
     input{
@@ -235,6 +237,12 @@ header nav input:checked ~ ul {
         width: 96.093%;
     }
 
+    .fir-p {
+        margin: auto;
+        width: 700px;
+        border-color:black;
+    }
+   
 /* about page */
 .profile-image {
     border-radius: 50%;
