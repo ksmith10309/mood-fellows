@@ -33,6 +33,10 @@ app.get('/delete/:id', getDelete);
 // post routes
 app.post('/new/submit', postNewPost);
 
+//put/delete routes
+app.post('/delete/:id/submit', deletePost);
+app.post('/edit/:id/submit', editPost);
+
 app.use( express.static('./public') );
 app.use(express.urlencoded({ extended: true }));
 app.use('*', (req, res) => res.render('pages/error'));
@@ -73,7 +77,6 @@ function getEdit(request, response) {
   let values = [request.params.id];
   client.query(SQL, values)
     .then( (data) => {
-      console.log(data.rows[0]);
       response.render('master', {
         post: data.rows[0],
         'pageTitle': 'Edit Post',
@@ -88,7 +91,6 @@ function getDelete(request, response) {
   let values = [request.params.id];
   client.query(SQL, values)
     .then( (data) => {
-      console.log(data.rows[0]);
       response.render('master', {
         post: data.rows[0],
         'pageTitle': 'Delete Post',
@@ -129,13 +131,14 @@ function postNewPost(request, response) {
         imageUrl = 'neutral';
       }
       // this is sending to the database
-      let SQL = `INSERT INTO posts (date, score, magnitude, avatar, content) VALUES ($1, $2, $3, $4, $5)`;
+      let SQL = `INSERT INTO posts (date, score, magnitude, avatar, content, password) VALUES ($1, $2, $3, $4, $5, $6)`;
       let values = [
         new Date(),
         results.body.documentSentiment.score,
         results.body.documentSentiment.magnitude,
         imageUrl,
-        request.body.description
+        request.body.description,
+        request.body.secretId
       ];
       client.query(SQL, values)
         .then( () => {
@@ -145,7 +148,8 @@ function postNewPost(request, response) {
               score: values[1],
               magnitude: values[2],
               avatar: values[3],
-              content: values[4]
+              content: values[4],
+              secretId: values[5]
             }],
             'pageTitle': 'Result',
             'pagePath': 'pages/result.ejs'
@@ -156,7 +160,81 @@ function postNewPost(request, response) {
 
 // functions for routes - edit post
 
+function editPost(request, response) {
+  let SQL = `SELECT * FROM posts WHERE id = $1`;
+  let values = [request.params.id];
+  client.query(SQL, values)
+    .then( (data) => {
+      if (data.rows[0].password === request.body.secretId) {
+        let url = 'https://language.googleapis.com/v1/documents:analyzeSentiment?key=' + api_key;
+        // this puts the post content in the correct format to send to google
+        let documents = {
+          "document": {
+            "type":"plain_text",
+            "language": "EN",
+            "content": request.body.postContent
+          },
+          "encodingType":"UTF8"
+        };
+      
+        // this sends to google
+        superagent
+          .post(url)
+          .send(documents)
+          .then(results => {
+            // this gets the image url based on the score
+            let imageUrl = '';
+            if (results.body.documentSentiment.score < -.25) {
+              imageUrl = 'negative';
+            } else if (results.body.documentSentiment.score > .25) {
+              imageUrl = 'positive';
+            } else {
+              imageUrl = 'neutral';
+            }
+            // this is sending to the database
+            let SQL2 = `UPDATE posts SET score = $1, magnitude = $2, avatar = $3, content = $4 WHERE id = $5`;
+            let values2 = [
+              results.body.documentSentiment.score,
+              results.body.documentSentiment.magnitude,
+              imageUrl,
+              request.body.postContent,
+              request.params.id
+            ];
+            client.query(SQL2, values2)
+              .then( () => {
+                response.redirect('/');
+              });
+          });
+      } else {
+        response.render('master', {
+          'pageTitle': 'Incorrect Password',
+          'pagePath': 'pages/incorrect.ejs'
+        });
+      }
+    });
+}
 
+// functions for routes - delete post
+
+function deletePost(request, response) {
+  let SQL = `SELECT * FROM posts WHERE id = $1`;
+  let values = [request.params.id];
+  client.query(SQL, values)
+    .then( (data) => {
+      if (data.rows[0].password === request.body.secretId) {
+        let SQL2 = `DELETE FROM posts WHERE id = $1`;
+        client.query(SQL2, values)
+          .then( () => {
+            response.redirect('/');
+          });
+      } else {
+        response.render('master', {
+          'pageTitle': 'Incorrect Password',
+          'pagePath': 'pages/incorrect.ejs'
+        });
+      }
+    });
+}
 
 // functions for routes - errors
 

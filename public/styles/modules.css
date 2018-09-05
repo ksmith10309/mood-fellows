@@ -21,6 +21,10 @@ header h1 a {
 
 /* header - nav */
 
+header nav label {
+    color: black;
+}
+
 header nav input,
 header nav label,
 header nav ul {
@@ -64,67 +68,22 @@ h2{
         display: none;
     }
 }
+
+/* main */
+
+main {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
     
 
 /* new post page */
-    h2{
-        font-size: 2em;
-        text-align: center;
-        padding-bottom: 20px;
-        font-family: IM Fell Double Pica SC;
-    }
-    main{
-        width: 100%;
-        margin-left: auto;
-        margin-right: auto;
-        position: relative;
-        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 
-    }
-
-    .card-column {
-        width: 600px;
-        margin: 0 auto;
-        text-align: center;
-
+.form-p {
+    text-align: center;
+}
  
-    }
-    input{
-        
-        display: block;
-        font-family: 'Times New Roman', Times, serif;
-        font-size: 1em;
-        margin: .5em 0;
-        padding: .5em;
-        width: 96.093%;
-        margin-left: 1em;
-        margin-right: 50px;
-    }
-    
-    textarea {
-        display: block;
-        font-family: 'Times New Roman', Times, serif;
-        font-size: 1em;
-        margin-top: 2em;
-        margin-left: 1em;
-        margin-right: 5em;
-        padding: .5em;
-        width: 96.093%;
-    }
-
-    .fir-p {
-        margin-left: 6.5em;
-        margin-right: 5em;
-        width: 700px;
-        border-color:black;
-        line-height: 1.5em;
-    }
-    .sec-p {
-        text-align: center;
-        margin-top: 1em;
-    }
-   
 /* about page */
+
 .profile-image {
     border-radius: 50%;
 }

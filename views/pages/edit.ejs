@@ -7,9 +7,9 @@
     </div>
 </div>
 
-<form>
+<form method="post" action="/edit/<%- post.id %>/submit">
     <p class="delete-edit-error">Incorrect ID</p>
-    <textarea name="post-content" id="post-content" cols="30" rows="10"><%= post.content %></textarea>
+    <textarea name="postContent" id="postContent" cols="30" rows="10"><%= post.content %></textarea>
     <input type="text" name="secretId" id="secretId" placeholder="ID here" />
     <input type="submit" value="Save">
 </form>

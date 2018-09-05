@@ -1,25 +1,24 @@
   
             
-               <h2>Instructions</h2>
-                <div class="paragraph">
-                    
-                    <p class="fir-p">Mood-Fellows is pretty easy to use. Simply write your thought in the entry box below. And submit it, your post is anonomyus so don't worry about other people reading or judging you for what you say. We will however catergorize your response by the your mood. We do that by using a special google API that reads and analyzes how you are feeling. It's pretty cool! </p>
-                </div>
-                <div class="content-wrap">
-                    <div class="card-column">
-                    
-                        <form method="POST" action="/new/submit">
-                            <textarea name="description" id="description" type= "text" cols="30" rows="10" required maxlength="2000"></textarea>
-                            <input type="submit" value="Add Post"  class="button">
-                        
-                        </form>
-                    </div> 
-                    </div>
-                 
-                <div>
-                    <p class="sec-p">
-                        If you want to edit or delete your post, please save the ID given.
-                    </p>
-                </div> 
-            </div>
-       
+<h2>Instructions</h2>
+<div class="paragraph">
+    <p class="content-p">Mood-Fellows is pretty easy to use. Simply write your thought in the entry box below. And submit it, your post is anonomyus so don't worry about other people reading or judging you for what you say. We will however catergorize your response by the your mood. We do that by using a special google API that reads and analyzes how you are feeling. It's pretty cool! </p>
+</div>
+<div class="content-wrap">
+    <div class="card-column">
+    
+        <form method="POST" action="/new/submit">
+            <textarea name="description" id="description" type= "text" cols="30" rows="10" required maxlength="2000"></textarea>
+            <label for="secretId">Password (optional)</label>
+            <input type="text" id="secretId" name="secretId" />
+            <input type="submit" value="Add Post"  class="button">
+        </form>
+    </div> 
+    </div>
+    
+    <div>
+        <p class="content-p form-p">
+            If you want to edit or delete your post, please save your password.
+        </p>
+    </div>
+</div>

@@ -1,11 +1,11 @@
 /* homepage - date/edit/delete buttons */
 
-.date-edit {
-    overflow: hidden;
+.date-edit p {
+    margin: 0;
 }
 
-.date-edit p {
-    padding: .5em 0;
+.date-edit {
+    overflow: hidden;
 }
 
 .date-edit p:nth-child(1) {
@@ -28,9 +28,13 @@
 
 /* homepage - speech bubbles */
 
+.speech-bubble {
+    margin: 0;
+}
+
 .post-card {
-    margin: 1em auto;
     overflow: hidden;
+    margin: 1em 0;
 }
 
 .post-card .speech-bubble {
@@ -62,9 +66,6 @@
 }
 
 @media screen and (max-width: 959px) {
-    .post-card .speech-bubble {
-        margin: 0 0 1em 0;
-    }
 
     .post-card .speech-bubble:after {
         content: '';

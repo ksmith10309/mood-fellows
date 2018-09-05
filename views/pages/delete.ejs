@@ -7,7 +7,7 @@
     </div>
 </div>
 
-<form method="post" action="/delete/submit">
+<form method="post" action="/delete/<%- post.id %>/submit">
     <p class="delete-edit-error">Incorrect ID</p>
     <input type="hidden" name="postId" id="postId" value="<%- post.id %>" />
     <input type="text" name="secretId" id="secretId" placeholder="ID here" />
