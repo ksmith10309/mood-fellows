@@ -43,6 +43,12 @@ header nav input:checked ~ ul {
     display: block;
 }
 
+h2{
+    font-size: 2em;
+    text-align: center;
+    font-family: IM Fell Double Pica SC;
+}
+
 /* header - nav (desktop) */
 
 @media screen and (min-width: 960px) {
@@ -222,7 +228,7 @@ header nav input:checked ~ ul {
         margin: .5em 0;
         padding: .5em;
         width: 96.093%;
-        margin-left: 40px;
+        margin-left: 1em;
         margin-right: 50px;
     }
     
@@ -230,17 +236,23 @@ header nav input:checked ~ ul {
         display: block;
         font-family: 'Times New Roman', Times, serif;
         font-size: 1em;
-        margin-top: 50px;
-        margin-left: 40px;
-        margin-right: 50px;
+        margin-top: 2em;
+        margin-left: 1em;
+        margin-right: 5em;
         padding: .5em;
         width: 96.093%;
     }
 
     .fir-p {
-        margin: auto;
+        margin-left: 6.5em;
+        margin-right: 5em;
         width: 700px;
         border-color:black;
+        line-height: 1.5em;
+    }
+    .sec-p {
+        text-align: center;
+        margin-top: 1em;
     }
    
 /* about page */
