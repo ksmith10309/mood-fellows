@@ -7,6 +7,7 @@ header {
     overflow: hidden;
     padding: .5em;
     font-family: Bungee Shade;
+    border-bottom: 1px solid rgba(0,0,0,.1);
 }
 
 /* header - h1 */
@@ -16,13 +17,18 @@ header h1 {
 }
 
 header h1 a {
-    color: black;
+    color: rgba(58, 80, 124, 1);
 }
 
 /* header - nav */
 
-header nav label {
-    color: black;
+header nav label,
+header nav a {
+    color: rgba(58, 80, 124, 1);
+}
+
+header nav a {
+    margin-left: .5em;
 }
 
 header nav input,
@@ -47,10 +53,25 @@ header nav input:checked ~ ul {
     display: block;
 }
 
-h2{
+h2 {
     font-size: 2em;
     text-align: center;
     font-family: IM Fell Double Pica SC;
+}
+
+@media screen and (max-width: 960px) {
+    header nav ul {
+        position: absolute;
+        right: 0;
+        top: 54.5px;
+        background-color: white;
+        z-index: 10;
+        padding: .2em 0;
+        box-shadow: 0 0 15px 1px rgba(0,0,0,.2);
+    }
+    header nav li {
+        padding: .5em;
+    }
 }
 
 /* header - nav (desktop) */

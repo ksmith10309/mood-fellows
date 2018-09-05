@@ -8,16 +8,13 @@ body {
     font-size: 18px;
 }
 
-h2 {
-    font-size: 2em;
-    text-align: center;
-    padding-bottom: 20px;
-    font-family: IM Fell Double Pica SC;
+a, a:hover {
+    text-decoration: none;
+    color: rgb(8, 0, 255);
 }
 
-a, a:hover, a:active {
-    text-decoration: none;
-    color:rgb(40, 37, 133);
+a:hover, a:active {
+	color: rgb(190, 59, 19);
 }
 
 p {
@@ -46,10 +43,28 @@ input {
 	display: block;
 }
 
-input,textarea {
+input, textarea {
 	font-size: 1em;
-	font-family: serif;
 	padding: .5em;
 	width: 100%;
 	margin: 1em auto;
+}
+
+input[type="text"],
+textarea {
+	font-family: serif;
+}
+
+input[type="submit"] {
+	max-width: 40%;
+	border-radius: 3px;
+	-webkit-appearance: none;
+	color: white;
+	background-color: rgba(58, 80, 124, 1);
+	border: none;
+	box-shadow: none;
+}
+
+input[type="submit"]:hover {
+	background-color: rgb(190, 59, 19);
 }
