@@ -31,7 +31,7 @@ app.get('/about', getAbout);
 app.post('/new/submit', postNewPost);
 
 app.use( express.static('./public') );
-// app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: true }));
 app.use('*', (req, res) => res.render('pages/error'));
 
 app.listen( PORT, () => console.log('Server Up on ', PORT) );
@@ -40,7 +40,7 @@ app.listen( PORT, () => console.log('Server Up on ', PORT) );
 // functions for routes - get
 
 function getHome(request, response) {
-  let SQL = 'SELECT * FROM posts';
+  let SQL = 'SELECT * FROM posts ORDER BY id DESC LIMIT 50';
   client.query(SQL)
     .then(data => {
       response.render('master', {
@@ -88,7 +88,6 @@ function postNewPost(request, response) {
     .then(results => {
       // this gets the image url based on the score
       let imageUrl = '';
-      let thisClass = '';
       if (results.body.documentSentiment.score < -.25) {
         imageUrl = 'negative';
       } else if (results.body.documentSentiment.score > .25) {
@@ -113,8 +112,7 @@ function postNewPost(request, response) {
               score: values[1],
               magnitude: values[2],
               avatar: values[3],
-              content: values[4],
-              classOfThis: thisClass
+              content: values[4]
             }],
             'pageTitle': 'Result',
             'pagePath': 'pages/result.ejs'
