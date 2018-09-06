@@ -48,18 +48,19 @@
 
 .post-card img {
     height: 120px;
+    border-radius: 50%;
 }
 
 .post-card.negative .speech-bubble {
-    background: rgb(241,162,174);
+    background: #f1c5c0;
 }
 
 .post-card.neutral .speech-bubble {
-    background: rgb(230,238,127);
+    background: #eee7aa;
 }
 
 .post-card.positive .speech-bubble {
-    background: rgb(126,240,134);
+    background: #bbf49f;
 }
 
 .post-card img {
@@ -84,13 +85,13 @@
     }
 
     .post-card.negative .speech-bubble:after {
-        border-top-color: rgb(241,162,174);
+        border-top-color: #f1c5c0;
     }
     .post-card.neutral .speech-bubble:after {
-        border-top-color: rgb(230,238,127);
+        border-top-color: #eee7aa;
     }
     .post-card.positive .speech-bubble:after {
-        border-top-color: rgb(126,240,134);
+        border-top-color: #bbf49f;
     }
 }
 
@@ -102,6 +103,10 @@
     .post-card:nth-child(2n + 1) img,
     .post-card:nth-child(2n) .speech-bubble {
         float: left;
+    }
+
+    .post-card:nth-child(2n) img {
+        transform: scaleX(-1);
     }
 
     .post-card:nth-child(2n) img,
@@ -138,22 +143,22 @@
     }
 
     .post-card.negative:nth-child(2n + 1) .speech-bubble:after {
-        border-right-color: rgb(241,162,174);
+        border-right-color: #f1c5c0;
     }
     .post-card.neutral:nth-child(2n + 1) .speech-bubble:after {
-        border-right-color: rgb(230,238,127);
+        border-right-color: #eee7aa;
     }
     .post-card.positive:nth-child(2n + 1) .speech-bubble:after {
-        border-right-color: rgb(126,240,134);
+        border-right-color: #bbf49f;
     }
 
     .post-card.negative:nth-child(2n) .speech-bubble:after {
-        border-left-color: rgb(241,162,174);
+        border-left-color: #f1c5c0;
     }
     .post-card.neutral:nth-child(2n) .speech-bubble:after {
-        border-left-color: rgb(230,238,127);
+        border-left-color: #eee7aa;
     }
     .post-card.positive:nth-child(2n) .speech-bubble:after {
-        border-left-color: rgb(126,240,134);
+        border-left-color: #bbf49f;
     }
 }
