@@ -1,25 +1,20 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <%- include partials/styles.ejs %>
+    <title>Mood Fellows - <%= pageTitle %></title>
     <%- include partials/meta-tags.ejs %>
-    <title>Mood Fellows</title>
+    <%- include partials/styles.ejs %>
 </head>
 <body>
     <header>
         <h1><a href="/">Mood Fellows</a></h1>
-        <%-include partials/nav-menu.ejs %>
+        <%- include partials/nav-menu.ejs %>
     </header>
     <main>
         <%- include(pagePath) %>
     </main>
-
-    <%- include partials/footer.ejs %>
-    
-    <%- include partials/scripts.ejs %>
-
+    <footer>
+        <%- include partials/copyright.ejs %>
+    </footer>
 </body>
 </html>
