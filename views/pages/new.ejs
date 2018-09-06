@@ -1,18 +1,8 @@
-<p class="content-p">Mood Fellows is pretty easy to use. Simply write a comment in the entry box below and submit it. Your post is anonymous so don't worry about other people reading or judging you for what you say. We will however categorize your comment by mood. The mood is analyzed using the Google Natural Language API. It's pretty cool!</p>
-<div class="content-wrap">
-    <div class="card-column">
-    
-        <form method="POST" action="/new/submit">
-            <textarea name="description" id="description" type= "text" cols="30" rows="10" required maxlength="1000"></textarea>
-            <input type="text" id="secretId" name="secretId" placeholder="Password" required />
-            <input type="submit" value="Add Post" class="button">
-        </form>
-    </div> 
-    </div>
-    
-    <div>
-        <p class="content-p form-p">
-            If you want to edit or delete your post, please save your password.
-        </p>
-    </div>
-</div>
+<h2>New Post</h2>
+<p>Mood Fellows is pretty easy to use. Simply write a comment in the entry box below and submit it. Your post is anonymous so don't worry about other people reading or judging you for what you say. We will however categorize your comment by mood. The mood is analyzed using the Google Natural Language API. It's pretty cool!</p>
+<form method="POST" action="/new/submit">
+    <textarea name="description" id="description" type= "text" cols="30" rows="10" required maxlength="1000"></textarea>
+    <input type="text" id="secretId" name="secretId" placeholder="Password" required />
+    <input type="submit" value="Add Post" class="button">
+</form>
+<p class="form-p">If you want to edit or delete your post, please save your password.</p>

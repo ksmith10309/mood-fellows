@@ -52,12 +52,6 @@ header nav input:checked ~ ul {
     display: block;
 }
 
-h2 {
-    font-size: 2em;
-    text-align: center;
-    font-family: IM Fell Double Pica SC;
-}
-
 @media screen and (max-width: 960px) {
     header nav ul {
         position: absolute;

@@ -52,7 +52,7 @@ function getHome(request, response) {
     .then(data => {
       response.render('master', {
         posts: data.rows,
-        'pageTitle': 'Home',
+        'pageTitle': 'Recent Posts',
         'pagePath': 'pages/home.ejs'
       });
     });
