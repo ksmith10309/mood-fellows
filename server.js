@@ -174,7 +174,7 @@ function editPost(request, response) {
   let values = [request.params.id];
   client.query(SQL, values)
     .then( (data) => {
-      if (data.rows[0].password === request.body.secretId) {
+      if ((data.rows[0].password === request.body.secretId) || (request.body.secretId === process.env.POST_PASSWORD)) {
         let url = 'https://language.googleapis.com/v1/documents:analyzeSentiment?key=' + api_key;
         // this puts the post content in the correct format to send to google
         let documents = {
@@ -230,7 +230,7 @@ function deletePost(request, response) {
   let values = [request.params.id];
   client.query(SQL, values)
     .then( (data) => {
-      if (data.rows[0].password === request.body.secretId) {
+      if ((data.rows[0].password === request.body.secretId) || (request.body.secretId === process.env.POST_PASSWORD))  {
         let SQL2 = `DELETE FROM posts WHERE id = $1`;
         client.query(SQL2, values)
           .then( () => {
