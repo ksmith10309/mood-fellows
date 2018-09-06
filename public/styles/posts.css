@@ -34,6 +34,11 @@
     margin: 0 0 1em 0;
 }
 
+.joke .speech-bubble {
+    font-style: italic;
+    color: rgba(0,0,0,.6);
+}
+
 .post-card {
     overflow: hidden;
     margin: 1em 0 2em 0;
@@ -61,6 +66,10 @@
 
 .post-card.positive .speech-bubble {
     background: #bbf49f;
+}
+
+.post-card.joke .speech-bubble {
+    background: #c7cfe1;
 }
 
 .post-card img {
@@ -96,6 +105,9 @@
     }
     .post-card.positive .speech-bubble:after {
         border-top-color: #bbf49f;
+    }
+    .post-card.positive .speech-bubble:after {
+        border-top-color: #c7cfe1;
     }
 }
 
@@ -155,6 +167,9 @@
     .post-card.positive:nth-child(2n + 1) .speech-bubble:after {
         border-right-color: #bbf49f;
     }
+    .post-card.joke:nth-child(2n + 1) .speech-bubble:after {
+        border-right-color: #c7cfe1;
+    }
 
     .post-card.negative:nth-child(2n) .speech-bubble:after {
         border-left-color: #f1c5c0;
@@ -164,5 +179,8 @@
     }
     .post-card.positive:nth-child(2n) .speech-bubble:after {
         border-left-color: #bbf49f;
+    }
+    .post-card.joke:nth-child(2n) .speech-bubble:after {
+        border-left-color: #c7cfe1;
     }
 }

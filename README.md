@@ -38,14 +38,19 @@ Visit [http://mood-fellows.herokuapp.com/](http://mood-fellows.herokuapp.com/) t
 - PostgreSQL
 - SuperAgent
 - EJS
+- Node Schedule
 
 ### APIs and other external resources
 - Google Natural Language API - Sentiment Analyzer
+- https://icanhazdadjoke.com - Dad Jokes API
 
 ## Change Log
 
+### 1.2.x
+- 09-06-2018 - 1.2.1 - Added jokes of the day feature
+- 09-06-2018 - 1.2.0 - Changed post images
+
 ### 1.1.x
-- 09-06-2018 - 1.1.5 - Changed post images
 - 09-05-2018 - 1.1.4 - Changed post images
 - 09-05-2018 - 1.1.3 - Added edit and delete post functionality
 - 09-05-2018 - 1.1.2 - Updated site colors

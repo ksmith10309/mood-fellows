@@ -2,6 +2,16 @@
 
 // app configuration
 require('dotenv').config();
+
+const schedule = require('node-schedule');
+
+// Change to twice a day:
+// var j = schedule.scheduleJob('* */12 * * *', function() {
+var j = schedule.scheduleJob('*/1 * * * *', function() {
+  console.log('Log this once a minute');
+  getJoke();
+});
+
 const express = require('express');
 const pg = require('pg');
 const superagent = require('superagent');
@@ -35,6 +45,7 @@ app.post('/new/submit', postNewPost);
 //put/delete routes
 app.post('/delete/:id/submit', deletePost);
 app.post('/edit/:id/submit', editPost);
+
 
 app.use( express.static('./public') );
 app.use(express.urlencoded({ extended: true }));
@@ -176,7 +187,7 @@ function editPost(request, response) {
           },
           "encodingType":"UTF8"
         };
-      
+
         // this sends to google
         superagent
           .post(url)
@@ -233,6 +244,27 @@ function deletePost(request, response) {
           'pagePath': 'pages/incorrect.ejs'
         });
       }
+    });
+}
+
+function getJoke() {
+  let joke = '';
+  let url = 'https://icanhazdadjoke.com/slack';
+  superagent
+    .get(url)
+    .then(results => {
+      joke = results.body.attachments[0].text;
+      let date = new Date();
+      let SQL = `INSERT INTO posts (date, score, magnitude, avatar, content, password) VALUES ($1, $2, $3, $4, $5, $6)`;
+      let values = [
+        date.toDateString() + ' ' + getTime(date),
+        0,
+        0,
+        'joke',
+        joke,
+        'joke1234'
+      ];
+      client.query(SQL, values);
     });
 }
 
