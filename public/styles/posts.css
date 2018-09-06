@@ -20,11 +20,11 @@
 
 @media screen and (min-width: 960px) {
     .post-card:nth-child(2n + 1) .date-edit p:nth-child(1) {
-        margin-left: 140px;
+        margin-left: 180px;
     }
 
     .post-card:nth-child(2n) .date-edit p:nth-child(2) {
-        margin-right: 140px;
+        margin-right: 180px;
     }
 }
 
@@ -36,18 +36,18 @@
 
 .post-card {
     overflow: hidden;
-    margin: 1em 0;
+    margin: 1em 0 2em 0;
 }
 
 .post-card .speech-bubble {
     padding: 1em;
 	position: relative;
     border-radius: .4em;
-    min-height: 120px;
+    min-height: 150px;
 }
 
 .post-card img {
-    height: 120px;
+    height: 150px;
     border-radius: 50%;
 }
 
@@ -69,6 +69,10 @@
 }
 
 @media screen and (max-width: 959px) {
+
+    .speech-bubble {
+        margin: 0 0 2em 0;
+    }
 
     .post-card .speech-bubble:after {
         content: '';
@@ -97,7 +101,7 @@
 
 @media screen and (min-width: 960px) {
     .post-card .speech-bubble {
-        width: calc(100% - 140px);
+        width: calc(100% - 180px);
     }
 
     .post-card:nth-child(2n + 1) img,
@@ -118,7 +122,7 @@
         content: '';
         position: absolute;
         right: 0;
-        top: 70px;
+        top: 100px;
         width: 0;
         height: 0;
         border: 0.75em solid transparent;
@@ -132,7 +136,7 @@
         content: '';
         position: absolute;
         left: 0;
-        top: 70px;
+        top: 100px;
         width: 0;
         height: 0;
         border: 0.75em solid transparent;

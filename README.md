@@ -1,7 +1,7 @@
 # Mood Fellows
 
 - **Author**: Hannah Sindorf, Brai Frauen, Katherine Smith
-- **Version**: 1.1.4
+- **Version**: 1.1.5
 
 ## Overview
 Blog that allows users to post anonymously. Posts are graded by the mood of the post by the Google Natural Language API - they will show an icon depending on whether the post is judged to be positive, negative, or neutral. Users can edit or delete posts they make by using an ID given when the post is made.
@@ -45,6 +45,7 @@ Visit [http://mood-fellows.herokuapp.com/](http://mood-fellows.herokuapp.com/) t
 ## Change Log
 
 ### 1.1.x
+- 09-06-2018 - 1.1.5 - Changed post images
 - 09-05-2018 - 1.1.4 - Changed post images
 - 09-05-2018 - 1.1.3 - Added edit and delete post functionality
 - 09-05-2018 - 1.1.2 - Updated site colors
@@ -65,4 +66,5 @@ Visit [http://mood-fellows.herokuapp.com/](http://mood-fellows.herokuapp.com/) t
 - 08-31-2018 - 1.0.0 - Initial release - set up repo, heroku hosting
 
 ## Credits and Collaborations
-https://leaverou.github.io/bubbly/
+- Bubbly - Speech Bubble Generator: https://leaverou.github.io/bubbly/
+- Adorable Avatars - Avatar Generator: http://avatars.adorable.io/
