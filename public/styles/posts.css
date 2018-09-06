@@ -106,7 +106,7 @@
     .post-card.positive .speech-bubble:after {
         border-top-color: #bbf49f;
     }
-    .post-card.positive .speech-bubble:after {
+    .post-card.joke .speech-bubble:after {
         border-top-color: #c7cfe1;
     }
 }
