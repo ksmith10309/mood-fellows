@@ -4,7 +4,7 @@
 
 body {
     background-color:rgba(58, 80, 124, 1);
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Nunito Sans', sans-serif;
     font-size: 18px;
 }
 
@@ -18,15 +18,14 @@ a:hover, a:active {
 }
 
 p {
-	margin: 1em 0;
+	margin: 1em 0 2em 0;
 	line-height: 1.5;
 }
 
-@media (min-width: 960px) {
-	.content-p {
-		width: 80%;
-		margin: 0 auto;
-	}
+h2 {
+	text-align: center;
+	font-size: 2em;
+	font-family: 'bungee shade'
 }
 
 form {
