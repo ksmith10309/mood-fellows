@@ -245,10 +245,10 @@ function getTime(date) {
   let minutes = date.getMinutes().toString();
   if (minutes.length === 1) { minutes = '0' + minutes; }
   if (date.getHours() > 12) {
-    return (date.getHours() - 12) + ':' + date.getMinutes() + ' PM';
+    return (date.getHours() - 12) + ':' + minutes + ' PM';
   } else if (date.getHours() === 12 ) {
-    return '12:' + date.getMinutes() + ' PM';
+    return '12:' + minutes + ' PM';
   } else {
-    return date.getHours() + ':' + date.getMinutes() + ' AM';
+    return date.getHours() + ':' + minutes + ' AM';
   }
 }
