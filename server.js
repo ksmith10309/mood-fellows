@@ -5,9 +5,8 @@ require('dotenv').config();
 
 const schedule = require('node-schedule');
 
-// Change to twice a day:
-var j = schedule.scheduleJob('* */1 * * *', function() {
-// var j = schedule.scheduleJob('*/1 * * * *', function() {
+// Joke set to once an hour
+var j = schedule.scheduleJob('0 */1 * * * *', function() {
   getJoke();
 });
 
